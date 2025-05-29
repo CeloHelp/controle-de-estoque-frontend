@@ -18,7 +18,8 @@ export default function App() {
   const buscarProdutos = async () => {
     try {
       const { data } = await axios.get(API_URL);
-      setProdutos(data);
+      console.log('API em produção:', API_URL, 'Resposta:', data);
+      setProdutos(Array.isArray(data) ? data : data.produtos || []);
     } catch {
       setAlerta({ open: true, message: 'Erro ao buscar produtos', severity: 'error' });
     }
@@ -62,7 +63,7 @@ export default function App() {
       <Box mb={3}>
         <ProductForm onSave={handleSalvar} editando={editando} onCancel={() => setEditando(null)} />
       </Box>
-      <ProductTable produtos={produtos} onEdit={handleEditar} onDelete={handleRemover} />
+      <ProductTable produtos={Array.isArray(produtos) ? produtos : []} onEdit={handleEditar} onDelete={handleRemover} />
       <Snackbar open={alerta.open} autoHideDuration={4000} onClose={() => setAlerta({ ...alerta, open: false })}>
         <Alert severity={alerta.severity} sx={{ width: '100%' }}>{alerta.message}</Alert>
       </Snackbar>
