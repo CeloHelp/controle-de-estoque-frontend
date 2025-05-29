@@ -7,7 +7,8 @@ import ProductTable from './components/ProductTable';
 import ProductForm from './components/ProductForm';
 import './App.css';
 
-const API_URL = 'http://localhost:3000/estoque';
+// Use environment variable for API URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/estoque';
 
 export default function App() {
   const [produtos, setProdutos] = useState([]);
