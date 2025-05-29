@@ -24,26 +24,26 @@ export default function ProductForm({ onSave, editando, onCancel }) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <TextField label="Nome" fullWidth {...register('nome', { required: true })} error={!!errors.nome} helperText={errors.nome && 'Campo obrigatório'} />
+            <TextField label="Nome" fullWidth {...register('nome', { required: true })} error={!!errors.nome} helperText={errors.nome && 'Campo obrigatório'} InputLabelProps={{ style: { fontWeight: 'bold' } }} inputProps={{ style: { fontWeight: 'bold' } }} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField label="Marca" fullWidth {...register('marca', { required: true })} error={!!errors.marca} helperText={errors.marca && 'Campo obrigatório'} />
+            <TextField label="Marca" fullWidth {...register('marca', { required: true })} error={!!errors.marca} helperText={errors.marca && 'Campo obrigatório'} InputLabelProps={{ style: { fontWeight: 'bold' } }} inputProps={{ style: { fontWeight: 'bold' } }} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField label="Tipo" fullWidth {...register('tipo', { required: true })} error={!!errors.tipo} helperText={errors.tipo && 'Campo obrigatório'} />
+            <TextField label="Tipo" fullWidth {...register('tipo', { required: true })} error={!!errors.tipo} helperText={errors.tipo && 'Campo obrigatório'} InputLabelProps={{ style: { fontWeight: 'bold' } }} inputProps={{ style: { fontWeight: 'bold' } }} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField label="Quantidade" type="number" fullWidth {...register('quantidade', { required: true, min: 0 })} error={!!errors.quantidade} helperText={errors.quantidade && 'Campo obrigatório'} />
+            <TextField label="Quantidade" type="number" fullWidth {...register('quantidade', { required: true, min: 0 })} error={!!errors.quantidade} helperText={errors.quantidade && 'Campo obrigatório (mínimo 0)'} inputProps={{ min: 0, style: { fontWeight: 'bold' } }} InputLabelProps={{ style: { fontWeight: 'bold' } }} />
           </Grid>
           <Grid item xs={12}>
-            <TextField label="Descrição" fullWidth multiline rows={2} {...register('descricao')} />
+            <TextField label="Descrição" fullWidth multiline rows={2} {...register('descricao')} InputLabelProps={{ style: { fontWeight: 'bold' } }} inputProps={{ style: { fontWeight: 'bold' } }} />
           </Grid>
           <Grid item xs={12}>
-            <TextField label="URL da Imagem" fullWidth {...register('imagem')} />
+            <TextField label="URL da Imagem" fullWidth {...register('imagem')} InputLabelProps={{ style: { fontWeight: 'bold' } }} inputProps={{ style: { fontWeight: 'bold' } }} />
           </Grid>
           <Grid item xs={12}>
             <Box display="flex" gap={2}>
-              <Button type="submit" variant="contained" color="primary">
+              <Button type="submit" variant="contained" color="primary" sx={{ fontWeight: 'bold' }}>
                 {editando ? 'Atualizar' : 'Cadastrar'}
               </Button>
               {editando && (

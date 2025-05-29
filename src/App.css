@@ -1,7 +1,11 @@
+body {
+  background: #424242;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0 0 0;
   text-align: center;
 }
 
@@ -33,8 +37,34 @@
   }
 }
 
-.card {
-  padding: 2em;
+.card, .MuiPaper-root {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 16px 0 rgba(60,72,100,0.08);
+  background: #fffbe6 !important; /* amarelo mostarda bem suave */
+}
+
+.MuiTableContainer-root {
+  margin-bottom: 2rem;
+}
+
+.MuiTableCell-root {
+  font-size: 1rem;
+}
+
+.MuiButton-containedPrimary {
+  background: linear-gradient(90deg, #FFC107 60%, #FFA000 100%);
+  color: #222;
+}
+
+.MuiButton-outlinedSecondary {
+  border-color: #FFA000;
+  color: #FFA000;
+}
+
+.MuiAlert-root {
+  font-size: 1.1rem;
+  background: #fffbe6;
+  color: #222;
 }
 
 .read-the-docs {

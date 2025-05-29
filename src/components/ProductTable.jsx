@@ -12,23 +12,23 @@ export default function ProductTable({ produtos, onEdit, onDelete }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Nome</TableCell>
-            <TableCell>Marca</TableCell>
-            <TableCell>Tipo</TableCell>
-            <TableCell>Quantidade</TableCell>
-            <TableCell>Descrição</TableCell>
-            <TableCell>Imagem</TableCell>
-            <TableCell align="right">Ações</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Nome</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Marca</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Tipo</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Quantidade</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Descrição</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Imagem</TableCell>
+            <TableCell align="right" sx={{ fontWeight: 'bold' }}>Ações</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {produtos.map((p) => (
             <TableRow key={p.id}>
-              <TableCell>{p.nome}</TableCell>
-              <TableCell>{p.marca}</TableCell>
-              <TableCell>{p.tipo}</TableCell>
-              <TableCell>{p.quantidade}</TableCell>
-              <TableCell>{p.descricao}</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>{p.nome}</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>{p.marca}</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>{p.tipo}</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>{p.quantidade}</TableCell>
+              <TableCell sx={{ fontWeight: 'bold' }}>{p.descricao}</TableCell>
               <TableCell>{p.imagem ? <img src={p.imagem} alt={p.nome} width={60} /> : '-'}</TableCell>
               <TableCell align="right">
                 <IconButton color="primary" onClick={() => onEdit(p)}><EditIcon /></IconButton>
