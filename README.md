@@ -1,37 +1,66 @@
-# Frontend - Controle de Estoque de Amortecedores
+<h1 align="center" style="font-weight: bold;">📦 Controle de Estoque de Amortecedores</h1>
 
-Este projeto é um frontend React criado com Vite e estilizado com Material UI. Ele consome a API REST do sistema de controle de estoque para listar, cadastrar, editar e remover produtos.
+<p align="center">
+  <em>Interface web para gerenciamento de estoque, desenvolvida com React + Vite e Material UI.</em>
+</p>
 
-## Como rodar o projeto
+<p align="center">
+  <a href="#tech">Tecnologias</a> • 
+  <a href="#install">Como Executar</a> • 
+  <a href="#features">Funcionalidades</a> • 
+  <a href="#usage">Acesso Online</a> • 
+  <a href="#team">Participantes</a>
+</p>
 
-1. Instale as dependências:
-   ```powershell
-   npm install
-   ```
-2. Inicie o servidor de desenvolvimento:
-   ```powershell
-   npm run dev
-   ```
-3. Acesse: http://localhost:5173
+<h2 id="tech">🧰 Tecnologias Utilizadas</h2>
+<ul>
+  <li>React 18</li>
+  <li>Vite</li>
+  <li>Material UI</li>
+  <li>Axios</li>
+</ul>
 
-## Funcionalidades previstas
-- Listagem de produtos
-- Cadastro de novo produto
-- Edição de produto
-- Remoção de produto
+<h2 id="install">🚀 Como Executar Localmente</h2>
+<ol>
+  <li>Clone o repositório:</li>
+  <pre><code>git clone https://github.com/CeloHelp/controle-de-estoque-frontend.git</code></pre>
 
-## Integração
-Configure a URL da API backend em um arquivo `.env` se necessário.
+  <li>Instale as dependências:</li>
+  <pre><code>npm install</code></pre>
 
-# React + Vite
+  <li>Inicie o servidor de desenvolvimento:</li>
+  <pre><code>npm run dev</code></pre>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <li>Acesse em seu navegador:</li>
+  <pre><code>http://localhost:5173</code></pre>
+</ol>
 
-Currently, two official plugins are available:
+<h2 id="features">📌 Funcionalidades</h2>
+<ul>
+  <li>📋 Listagem de produtos do estoque</li>
+  <li>➕ Cadastro de novo produto</li>
+  <li>✏️ Edição de produto</li>
+  <li>🗑️ Remoção de produto</li>
+</ul>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2 id="usage">🌐 Acesso Online</h2>
+<p>
+  O sistema está hospedado na Vercel e pode ser acessado pelo link:<br/>
+  <a href="https://controle-de-estoque-frontend-c2lfpox04-celohelps-projects.vercel.app/" target="_blank">
+    https://controle-de-estoque-frontend-c2lfpox04-celohelps-projects.vercel.app/
+  </a>
+</p>
 
-## Expanding the ESLint configuration
+<h2 id="team">👨‍💻 Participantes do Projeto</h2>
+<ul>
+  <li><strong>Marcelo Henrique Pacobello</strong> – RA: 24001795</li>
+  <li><strong>João Victor Camargo Ribeiro</strong> – RA: 24001165</li>
+</ul>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<h2>📎 Observações</h2>
+<ul>
+  <li>Este projeto foi desenvolvido como parte das atividades da disciplina de Desenvolvimento Web.</li>
+  <li>A interface consome uma API REST que deve estar em funcionamento para o uso completo da aplicação.</li>
+</ul>
+
+<p align="center">Desenvolvido com 💻 por <a href="https://github.com/CeloHelp" target="_blank">Leví Vieira Júnior</a></p>
