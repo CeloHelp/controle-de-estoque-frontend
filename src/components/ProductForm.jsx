@@ -21,6 +21,14 @@ export default function ProductForm({ onSave, editando, onCancel }) {
 
   return (
     <Paper sx={{ p: 2 }}>
+      <Button
+        variant="outlined"
+        color="secondary"
+        sx={{ position: 'absolute', top: 24, left: 24, fontWeight: 'bold', zIndex: 2 }}
+        onClick={() => onCancel && onCancel('home')}
+      >
+        Início
+      </Button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>

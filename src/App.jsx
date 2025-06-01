@@ -6,6 +6,7 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ProductTable from './components/ProductTable';
 import ProductForm from './components/ProductForm';
+import Home from './components/Home';
 import './App.css';
 
 // Use environment variable for API URL
@@ -24,6 +25,7 @@ export default function App() {
   const [produtos, setProdutos] = useState([]);
   const [editando, setEditando] = useState(null);
   const [alerta, setAlerta] = useState({ open: false, message: '', severity: 'success' });
+  const [tela, setTela] = useState('home'); // home | cadastrar | listar
 
   const buscarProdutos = async () => {
     try {
@@ -36,8 +38,8 @@ export default function App() {
   };
 
   useEffect(() => {
-    buscarProdutos();
-  }, []);
+    if (tela === 'listar') buscarProdutos();
+  }, [tela]);
 
   const handleSalvar = async (produto) => {
     try {
@@ -50,12 +52,16 @@ export default function App() {
       }
       setEditando(null);
       buscarProdutos();
+      setTela('listar');
     } catch (e) {
       setAlerta({ open: true, message: e.response?.data?.mensagem || 'Erro ao salvar produto', severity: 'error' });
     }
   };
 
-  const handleEditar = (produto) => setEditando(produto);
+  const handleEditar = (produto) => {
+    setEditando(produto);
+    setTela('cadastrar');
+  };
 
   const handleRemover = async (id) => {
     try {
@@ -75,15 +81,45 @@ export default function App() {
             Controle de Estoque de Amortecedores
           </Typography>
         </Box>
-        <Container maxWidth="md">
-          <Box mb={3}>
-            <ProductForm onSave={handleSalvar} editando={editando} onCancel={() => setEditando(null)} />
-          </Box>
-          <ProductTable produtos={Array.isArray(produtos) ? produtos : []} onEdit={handleEditar} onDelete={handleRemover} />
-        </Container>
+        {tela === 'home' && <Home onNavigate={setTela} />}
+        {tela === 'cadastrar' && (
+          <Container maxWidth="md">
+            <Box mb={3}>
+              <ProductForm onSave={handleSalvar} editando={editando} onCancel={(destino) => {
+  setEditando(null);
+  setTela(destino === 'home' ? 'home' : 'home');
+}} />
+            </Box>
+          </Container>
+        )}
+        {tela === 'listar' && (
+          <Container maxWidth="md" sx={{ position: 'relative', mt: 4 }}>
+            <Box sx={{ position: 'relative', mb: 2 }}>
+              <Button
+                variant="outlined"
+                color="secondary"
+                sx={{ position: 'absolute', top: -100, left: -500, fontWeight: 'bold', zIndex: 2 }}
+                onClick={() => { setEditando(null); setTela('home'); }}
+              >
+                Início
+              </Button>
+            </Box>
+            <ProductTable produtos={Array.isArray(produtos) ? produtos : []} onEdit={handleEditar} onDelete={handleRemover} />
+            <Box mt={2} display="flex" justifyContent="center">
+              <Button variant="contained" color="primary" sx={{ fontWeight: 'bold' }} onClick={() => { setEditando(null); setTela('cadastrar'); }}>
+                Cadastrar Novo Produto
+              </Button>
+            </Box>
+          </Container>
+        )}
         <Snackbar open={alerta.open} autoHideDuration={4000} onClose={() => setAlerta({ ...alerta, open: false })}>
           <Alert severity={alerta.severity} sx={{ width: '100%' }}>{alerta.message}</Alert>
         </Snackbar>
+        <Box component="footer" sx={{ width: '100%', bgcolor: 'primary.main', color: 'black', py: 2, textAlign: 'center', position: 'fixed', bottom: 0, left: 0, zIndex: 1300 }}>
+          <Typography variant="body2" fontWeight="bold">
+            © {new Date().getFullYear()} Controle de Estoque de Amortecedores
+          </Typography>
+        </Box>
       </Box>
     </ThemeProvider>
   );
