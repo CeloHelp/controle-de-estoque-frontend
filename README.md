@@ -63,4 +63,4 @@
   <li>A interface consome uma API REST que deve estar em funcionamento para o uso completo da aplicação.</li>
 </ul>
 
-<p align="center">Desenvolvido com 💻 por <a href="https://github.com/CeloHelp" target="_blank">Leví Vieira Júnior</a></p>
+
