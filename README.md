@@ -49,6 +49,9 @@
   <a href="https://controle-de-estoque-frontend-c2lfpox04-celohelps-projects.vercel.app/" target="_blank">
     https://controle-de-estoque-frontend-c2lfpox04-celohelps-projects.vercel.app/
   </a>
+<p>
+  Caso a lista de items não apareça no Vercel, verifique no back-end com o final: /estoque
+</p>
 </p>
 
 <h2 id="team">👨‍💻 Participantes do Projeto</h2>
