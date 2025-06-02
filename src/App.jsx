@@ -10,7 +10,7 @@ import Home from './components/Home';
 import './App.css';
 
 // Use environment variable for API URL
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/estoque';
+const API_URL = 'https://a87f-148-222-192-191.ngrok-free.app/estoque';
 
 const theme = createTheme({
   palette: {
