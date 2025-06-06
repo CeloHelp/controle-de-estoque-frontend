@@ -9,14 +9,14 @@ import ProductForm from './components/ProductForm';
 import Home from './components/Home';
 import './App.css';
 
-// Use environment variable for API URL
-const API_URL = 'https://a87f-148-222-192-191.ngrok-free.app/estoque';
+
+const API_URL = ' https://ad4b-201-149-121-95.ngrok-free.app/estoque';
 
 const theme = createTheme({
   palette: {
     primary: { main: '#FFC107' }, 
     secondary: { main: '#FFA000' },
-    background: { default: '#424242' }, // cinza mais escuro
+    background: { default: '#424242' }, 
   },
   shape: { borderRadius: 12 },
 });
@@ -25,7 +25,7 @@ export default function App() {
   const [produtos, setProdutos] = useState([]);
   const [editando, setEditando] = useState(null);
   const [alerta, setAlerta] = useState({ open: false, message: '', severity: 'success' });
-  const [tela, setTela] = useState('home'); // home | cadastrar | listar
+  const [tela, setTela] = useState('home'); 
 
   const buscarProdutos = async () => {
     try {
