@@ -10,7 +10,7 @@ import Home from './components/Home';
 import './App.css';
 
 
-const API_URL = 'https://3c25-201-149-121-95.ngrok-free.app/estoque';
+const API_URL = ' https://9880-201-149-121-95.ngrok-free.app/estoque';
 
 const theme = createTheme({
   palette: {
