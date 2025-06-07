@@ -10,7 +10,7 @@ import Home from './components/Home';
 import './App.css';
 
 
-const API_URL = ' https://ad4b-201-149-121-95.ngrok-free.app/estoque';
+const API_URL = 'https://3c25-201-149-121-95.ngrok-free.app/estoque';
 
 const theme = createTheme({
   palette: {
@@ -21,19 +21,61 @@ const theme = createTheme({
   shape: { borderRadius: 12 },
 });
 
+const DEMO_PRODUCTS = [
+  {
+    id: 'demo-1',
+    nome: 'Amortecedor Demo',
+    marca: 'Cofap',
+    tipo: 'Carro',
+    quantidade: 10,
+    descricao: 'Produto de demonstração para visualização da tabela.',
+    imagem: '',
+  },
+];
+
 export default function App() {
-  const [produtos, setProdutos] = useState([]);
+  const [produtos, setProdutos] = useState(DEMO_PRODUCTS);
   const [editando, setEditando] = useState(null);
   const [alerta, setAlerta] = useState({ open: false, message: '', severity: 'success' });
   const [tela, setTela] = useState('home'); 
 
+  // Adiciona log detalhado para depuração da resposta da API
   const buscarProdutos = async () => {
     try {
       const { data } = await axios.get(API_URL);
-      console.log('API em produção:', API_URL, 'Resposta:', data);
-      setProdutos(Array.isArray(data) ? data : data.produtos || []);
-    } catch {
+      console.log('API em produção:', API_URL, 'Resposta:', data, 'Tipo:', typeof data);
+      let lista = Array.isArray(data) ? data : data?.produtos;
+      if (Array.isArray(lista) && lista.length > 0) {
+        setProdutos(lista);
+      } else {
+        // Mantém ou restaura o produto de demonstração se a resposta for vazia ou inválida
+        setProdutos([
+          {
+            id: 'demo-1',
+            nome: 'Amortecedor Demo',
+            marca: 'Cofap',
+            tipo: 'Carro',
+            quantidade: 10,
+            descricao: 'Produto de demonstração para visualização da tabela.',
+            imagem: '',
+          },
+        ]);
+      }
+    } catch (e) {
+      console.error('Erro ao buscar produtos:', e);
       setAlerta({ open: true, message: 'Erro ao buscar produtos', severity: 'error' });
+      // Em caso de erro, garante o produto de demonstração
+      setProdutos([
+        {
+          id: 'demo-1',
+          nome: 'Amortecedor Demo',
+          marca: 'Cofap',
+          tipo: 'Carro',
+          quantidade: 10,
+          descricao: 'Produto de demonstração para visualização da tabela.',
+          imagem: '',
+        },
+      ]);
     }
   };
 
