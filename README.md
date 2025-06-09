@@ -64,6 +64,7 @@
 <ul>
   <li>Este projeto foi desenvolvido como parte das atividades da disciplina de Desenvolvimento Web.</li>
   <li>A interface consome uma API REST que deve estar em funcionamento para o uso completo da aplicação.</li>
+  <li>e-mail para contato: marcelo.pacobello@sou.unifeob.edu.br</li>
 </ul>
 
 
